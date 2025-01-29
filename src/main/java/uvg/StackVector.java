@@ -4,6 +4,11 @@ import java.util.Vector;
 public class StackVector<E> implements Stack<E>{
     private Vector<E> stack;
 
+    public StackVector() {
+        stack = new Vector<>();
+    }
+    
+
     @Override
     public void push(E item) {
         //  Agregar un elemento al final de la lista
