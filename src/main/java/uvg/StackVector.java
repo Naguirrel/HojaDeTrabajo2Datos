@@ -1,35 +1,50 @@
 package uvg;
+import java.util.Vector; 
 
-public class StackVector implements Stack{
+public class StackVector<E> implements Stack<E>{
+    private Vector<E> stack;
 
     @Override
-    public void push(Object item) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'push'");
+    public void push(E item) {
+        //  Agregar un elemento al final de la lista
+        stack.add(item);
+    }
+
+
+    @Override
+    public E pop() {  
+     // Eliminar el último elemento de la lista si no está vacia. 
+     if (stack.isEmpty() == true) {
+        throw new IllegalStateException("La pila está vacia.");
+    }else{
+        return stack.remove(stack.size() - 1); 
+    }
+      
     }
 
     @Override
-    public Object pop() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pop'");
-    }
-
-    @Override
-    public Object peek() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'peek'");
+    public E peek() {
+        // Debe retornar el ultimo elemento de la lista si no está vacia. 
+        if (stack.isEmpty() == true) {
+            throw new IllegalStateException("La pila está vacia.");
+            
+        } else {
+            return stack.get(stack.size() - 1);
+        }
     }
 
     @Override
     public boolean empty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'empty'");
+        // Retorna true si y solo si está vacia
+        return stack.isEmpty();
+        
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        // Retorna el tamaño de la lista
+        return stack.size();
+
     }
     
 }
