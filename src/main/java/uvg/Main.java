@@ -31,7 +31,29 @@ public class Main {
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
+        
+    }
+    // Método para verificar si un string es un número
+    private static boolean esNumero(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
-   
+    // Método para realizar operaciones básicas
+    private static int operar(int a, int b, String operador) {
+        switch (operador) {
+            case "+": return a + b;
+            case "-": return a - b;
+            case "*": return a * b;
+            case "/": return a / b;
+            default: throw new IllegalArgumentException("Operador desconocido: " + operador);
+        }
+    }
 }
+
+   
+
